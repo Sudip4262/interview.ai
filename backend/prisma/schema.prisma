@@ -14,11 +14,53 @@ model users {
   img         String   @default("")
   createdAT   DateTime @default(now())
   updatedAT   DateTime @updatedAt
+
+  interview   interview_session[]
 }
 
-model Employee {
-  id       Int      @id @default(autoincrement())
-  name     String
-  role     String
-  interest String[]
+model categories {
+  id          Int @id @default(autoincrement())
+  name        String  @unique
+  description String
+  img         String
+  active      Boolean @default(true)
+
+  questions   Questions[]
+  interview   interview_session[]
 }
+
+model Questions {
+  id          Int @id @default(autoincrement())
+  category_id Int 
+  category    categories @relation(fields: [category_id], references:[id])
+  question    String
+  difficulty  String
+  answer      String
+
+  interview   interview_answers[]
+}
+
+model interview_session {
+  id          Int @id @default(autoincrement())
+  user_id     Int
+  user        users @relation(fields:[user_id], references:[id])
+  category_id Int
+  category    categories @relation(fields:[category_id], references:[id])
+  status      String
+  started_at  String
+  ended_at    String
+
+  interview interview_answers[]
+}
+
+model interview_answers {
+  id          Int @id @default(autoincrement())
+  session_id  Int
+  session     interview_session @relation(fields:[session_id], references:[id])
+  question_id Int
+  question    Questions @relation(fields:[question_id], references:[id])
+  user_answer String
+  score       Int
+  feedback    String
+}
+

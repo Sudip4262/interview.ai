@@ -39,7 +39,7 @@ export default function Login() {
                 body: JSON.stringify({
                     email:formData.email,
                     password:formData.password,
-                    name:name,
+                    name:formData.name,
                 })
             })
             // const data = await request.json()
