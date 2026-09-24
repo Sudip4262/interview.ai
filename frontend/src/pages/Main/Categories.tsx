@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { category } from '../../types'
 import { CircleArrowRight, ArrowRight } from 'lucide-react';
 

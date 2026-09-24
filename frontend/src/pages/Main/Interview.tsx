@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react'
-import { CircleArrowRight, ArrowRight, Check, File, FileSpreadsheet, Clock } from 'lucide-react';
+import  {useEffect, useState} from 'react'
+import {  Check, File, FileSpreadsheet, Clock } from 'lucide-react';
 import type { category, Interview_topic } from '../../types'
 
 const Difficulty = [
