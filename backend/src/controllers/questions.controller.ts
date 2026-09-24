@@ -4,10 +4,10 @@ import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
 export const createQuestions = async(req:Request, res:Response) => {
-    const category_id = 1
-    const question = "How do you implement Node in your current project";
+    const category_id = 8
+    const question = "How would you improve API performance?";
     const difficulty = "easy"
-    const answer = "anything is right"
+    const answer = "Add database indexes Use Redis caching Paginate large datasets Optimize queries Enable compression Use connection pooling"
  
     try {
         const findQuestion = await prisma.questions.findFirst({
@@ -52,7 +52,7 @@ export const createQuestions = async(req:Request, res:Response) => {
 
 export const deleteQuestionsById = async(req:Request, res:Response) => {
 
-    const Question_id = 2
+    const Question_id = 3
     try {
         const deleteQuestion = await prisma.questions.delete({
             where:{

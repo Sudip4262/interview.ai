@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { store } from './redux/store'
 
 import OutsideLayout from './layout/OutsideLayout'
 import MainLayout from './layout/MainLayout'
@@ -10,6 +12,11 @@ import Signin from "./pages/OutSide/Signin"
 
 //Main
 import Home from './pages/Main/Home'
+import Profile from './pages/Main/Profile'
+import Interview from './pages/Main/Interview'
+import Categories from './pages/Main/Categories'
+import History from './pages/Main/History'
+
 
 
 
@@ -17,6 +24,7 @@ import Home from './pages/Main/Home'
 export default function App() {
   return (
     <div>
+      <Provider store={store}>
       <BrowserRouter>
         <Routes>
           <Route element={<OutsideLayout/>} >
@@ -26,9 +34,14 @@ export default function App() {
           </Route>
           <Route element={<MainLayout/>} >
             <Route path='/home' element={<Home/>} />
+            <Route path='/profile' element={<Profile/>} />
+            <Route path='/interview' element={<Interview/>} />
+            <Route path='/categories' element={<Categories/>} />
+            <Route path='/history' element={<History/>} />
           </Route>
         </Routes>
       </BrowserRouter>
+      </Provider>
     </div>
   )
 }

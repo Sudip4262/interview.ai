@@ -68,7 +68,7 @@ export const modifyInterviewSession = async(req:Request, res:Response) => {
 }
 
 export const deleteSession = async(req:Request, res:Response) => {
-    const id = 1
+    const id = 4
 
     try {
         const Session = await prisma.interview_session.delete({

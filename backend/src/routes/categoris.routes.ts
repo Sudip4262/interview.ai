@@ -6,8 +6,8 @@ const router = Router()
 
 //working
 router.post("/create", createCategory );
-router.post("/deleteByid", deleteCategoryById)
-router.post("/updateByid", updateCategoryById)
+router.post("/deleteById", deleteCategoryById)
+router.post("/updateById", updateCategoryById)
 
 router.get("/getall", getAllCategories)
 

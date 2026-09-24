@@ -6,9 +6,9 @@ import jwt from "jsonwebtoken";
 
 // Signin
 export const createCategory = async (req:Request, res:Response) => {
-  const category_name = "jupyter Notebook";
-  const description = "This catagory belongs to python Developers";
-  const img = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEsp_h7dE5TInyWGYyQtsIDrQDDnJGqMLj4xRddLEgiw&s=10";
+  const category_name = "React";
+  const description = "This is a framework for web development.";
+  const img = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJB8G9o1o0tUG18rupf4NhxdS-JuHYbcv9HnORFAp4QQ&s=10";
   const active = false
 
   try {
@@ -45,7 +45,7 @@ export const createCategory = async (req:Request, res:Response) => {
 }
 
 export const deleteCategoryById = async (req:Request, res:Response) => {
-    const id=6;
+    const id=7;
 
     try {
         const Category = await prisma.categories.delete({
@@ -61,7 +61,8 @@ export const deleteCategoryById = async (req:Request, res:Response) => {
 
     } catch (error) {
         return res.status(400).json({
-            message:"Category Not Deleted! Something went Wrong"
+            message:"Category Not Deleted! Something went Wrong",
+            error
         })
     }
 }
